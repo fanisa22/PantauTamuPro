@@ -40,6 +40,11 @@ class HomeController extends Controller
         return view ('view.daftar', compact('visitors'));
     }
 
+    public function feedback(){
+        $visitors = Visitor::all();
+        return view ('view.feedback', compact('visitors'));
+    }
+
     public function tabler(){
         return view ('view.tables');
     }

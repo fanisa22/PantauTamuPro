@@ -79,10 +79,10 @@
                                             <input type="text" placeholder="Input Keterangan" />
                                         </td>
                                         <td>
-                                        <button onclick="editVisitor()" class="btn btn-success" style="color: white; padding: 5px 10px; height: auto;">
+                                        <button onclick="togglePopupedit()" class="btn btn-success" style="color: white; padding: 5px 10px; height: auto;">
                                             <i class="fas fa-edit"></i>&nbsp;Edit
                                         </button><br><br>
-                                        <button onclick="deleteVisitor()" class="btn btn-danger" style="color: white; padding: 5px 10px; height: auto;">
+                                        <button onclick="konfirmasiHapus()" class="btn btn-danger" style="color: white; padding: 5px 10px; height: auto;">
                                             <i class="fas fa-trash-alt"></i>&nbsp;Delete
                                         </button>
                                         </td>
@@ -137,6 +137,47 @@
         <div style="text-align: center;">
             <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Submit</button>
             <button type="button" class="btn btn-secondary" onclick="togglePopup()">Close</button>
+        </div>
+    </form>
+</div>
+<!-- END POP UP TAMBAH DATA-->
+
+<!-- POP UP EDIT DATA-->
+<div id="popupedit" style="display: none; position: fixed; top: 56%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
+    <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Edit Data Tamu VIP</h4>
+    
+    <form>
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+        </div>
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
+        </div>
+        <div class="form-group">
+            <label for="keperluan">Keperluan</label>
+            <input type="text" class="form-control" id="keperluan" placeholder="Masukkan keperluan">
+        </div>
+        <div class="form-group">
+            <label for="asal_instansi">Asal Instansi</label>
+            <input type="text" class="form-control" id="asal_instansi" placeholder="Masukkan asal instansi">
+        </div>
+        <div class="form-group">
+            <label for="no_hp">No HP</label>
+            <input type="text" class="form-control" id="no_hp" placeholder="Masukkan nomor HP">
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" placeholder="Masukkan nomor HP">
+        </div>
+        <div class="form-group">
+            <label for="ket">Keterangan</label>
+            <input type="text" class="form-control" id="ket" placeholder="Masukkan keterangan">
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Submit</button>
+            <button type="button" class="btn btn-secondary" onclick="togglePopupedit()">Close</button>
         </div>
     </form>
 </div>
@@ -210,6 +251,32 @@ dropdown.addEventListener("change", function() {
             } else {
                 popup.style.display = 'none';
             }
+        }
+
+          // Function to toggle popup EDIT
+    function togglePopupedit() {
+            var popup = document.getElementById('popupedit');
+            if (popup.style.display === 'none') {
+                popup.style.display = 'block';
+            } else {
+                popup.style.display = 'none';
+            }
+        }
+
+        function konfirmasiHapus() {
+            // Menampilkan jendela konfirmasi dengan pesan khusus
+            if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+                // Jika pengguna mengklik "OK", lakukan penghapusan
+                hapusData();
+            } else {
+                // Jika pengguna mengklik "Batal", tidak lakukan apa-apa
+                return;
+            }
+        }
+
+        function hapusData() {
+            // Di sini Anda akan menempatkan kode untuk menghapus data
+            alert("Data berhasil dihapus!"); // Contoh pesan konfirmasi
         }
 </script>
 @endsection

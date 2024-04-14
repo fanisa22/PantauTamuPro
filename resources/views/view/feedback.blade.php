@@ -6,7 +6,7 @@
 </head>
 <div class="d-flex justify-content-between align-items-center">
     <div>
-        <h4 class="font-weight-bold mb-0">Manajemen Data Karyawan</h4>
+        <h4 class="font-weight-bold mb-0">DATA FEEDBACK</h4>
     </div>
     <div>
         <p id="reportButton"></p>
@@ -25,7 +25,7 @@
     </div>
     <ul>
     <button class="btn btn-dark" type="button" style="padding: 5px 10px; color: #fff; margin-right: 10px;" onclick="togglePopup()">
-        <i class="fas fa-plus"></i> &nbsp;Tambah Karyawan
+        <i class="fas fa-plus"></i> &nbsp;Tambah Data
     </button>
 </ul>
 </div>

@@ -25,6 +25,7 @@ Route::get('/element',[HomeController::class,'element'])->name('element')->middl
 Route::get('/vip',[HomeController::class,'vip'])->name('vip')->middleware('auth.admin');
 Route::get('/karyawan',[HomeController::class,'karyawan'])->name('element')->middleware('auth.admin');
 Route::get('/profile',[HomeController::class,'profile'])->name('profile')->middleware('auth.admin');
+Route::get('/feedback',[HomeController::class,'feedback'])->name('feedback')->middleware('auth.admin');
 Route::get('/', [UserController::class, 'index']);
 Route::get('/daftar', [FormulirController::class, 'daftar'])->name('daftar');
 Route::get('/register', [RegisterController::class, 'index']);

@@ -105,6 +105,8 @@
 </div>
 <!-- END POP UP TAMBAH DATA -->
 
+ 
+
 <script>
     // Mendapatkan tombol "Report"
     var reportButton = document.getElementById('reportButton');
@@ -141,5 +143,6 @@
             popup.style.display = 'none';
         }
     }
+
 </script>
 @endsection
