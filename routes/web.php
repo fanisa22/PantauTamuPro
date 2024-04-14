@@ -7,7 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FormulirController;
-
+use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +37,5 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/table',[HomeController::class,'tabler'])->name('table')->middleware('auth.admin');
+
+Route::get('/cetak-tamu', [VisitorController::class, 'cetakTamu'])->name('cetak-tamu');
