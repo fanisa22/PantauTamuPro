@@ -143,7 +143,7 @@
                 </form>
             </div>
             <div class="maps-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.1837823718!2dLONGITUDE!3dLATITUDE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDIwJzI2LjEiTiBMTEM0wrAxNy4xIlc!5e0!3m2!1sen!2sus!4v1589995509118!5m2!1sen!2sus" width="1000" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1973.0149763259863!2d113.5707677579727!3d-8.203142729675596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7b1bfae3eeb55%3A0x3a74696b38f90783!2sPT.%20Mangli%20Djaya%20Raya!5e0!3m2!1sen!2sid!4v1649734707859!5m2!1sen!2sid" width="1000" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <div class="footer-content">
             <p>Hak Cipta © 2024 Pantau Tamu Pro. Dibuat dengan <i class="ri-heart-fill"></i> oleh Tim Pengembang Aplikasi |</p>
             <p>Powered By Smart IT</p>
