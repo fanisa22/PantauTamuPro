@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT-PRO</title>
     <!-- My Style -->
-    <link rel="stylesheet" href="css/user.css" />
+    <link rel="stylesheet" href="{{asset('css/user.css')}}" />
      <!-- Remix Icon -->
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
 <body>
 <div class="navbar">
     <div class="navbar-nav">
-    <img src="img/mdr-logo.png" alt="logo" style="width:150px"/>
+    <img src="{{asset('img/mdr-logo.png')}}" alt="logo" style="width:150px"/>
      
     </div>
     <div class="navbar-nav">
@@ -32,7 +32,7 @@
         <h1>Pantau <span>Tamu-Pro</span></h1>
         <p> Jaga jejak tamu Anda dengan mudah dan aman menggunakan aplikasi buku tamu kami. Dengan fitur-fitur yang praktis dan andal, Anda dapat melacak setiap kunjungan, mengelola informasi kontak, dan memastikan pengalaman tamu yang lancar setiap saat. Tetap terhubung dengan para tamu Anda, tanpa kehilangan detail penting!</p>
         <a href="/formulir" class="btn">Isi Tamu</a>
-        <a href="/tables" class="btn">VIP</a>
+        <a href="/codevip" class="btn">VIP</a>
       </main>
       <div class="header__image">
         <img src="img/icon.png" alt="header" />
@@ -42,77 +42,77 @@
     </section>
     <!-- Hero Section end -->
 
-    <!-- About Section start -->
-    <section id="about" class="about">
-      <h2>- PENGEMBANG APLIKASI -</h2>
-      <p>Tim yang bertanggung jawab atas pembuatan, pengujian, dan pemeliharaan aplikasi. Mereka merancang fitur, mengembangkan kode, dan memastikan keberfungsian aplikasi. Pengembang juga terlibat dalam menangani masukan pengguna, memperbaiki bug, dan mengimplementasikan pembaruan untuk meningkatkan kinerja dan pengalaman pengguna.</p>
-      <div class="price__grid">
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Muhammad Bayu </h4>
-            <h3></h3>
-            <img src="img/bayu.jpg" alt="header" />
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Designer Gua
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Pro Player Sejati
-            </p>
-          </div>
-         
+   <!-- About Section start -->
+<!-- About Section start -->
+<section id="about" class="about">
+  <h2>- PENGEMBANG APLIKASI -</h2>
+  <p>Tim yang bertanggung jawab atas pembuatan, pengujian, dan pemeliharaan aplikasi. Mereka merancang fitur, mengembangkan kode, dan memastikan keberfungsian aplikasi. Pengembang juga terlibat dalam menangani masukan pengguna, memperbaiki bug, dan mengimplementasikan pembaruan untuk meningkatkan kinerja dan pengalaman pengguna.</p>
+  <div class="price__grid" style="display: flex; justify-content: center;">
+    <div class="price__card">
+      <div class="price__card__content">
+        <h4>Muhammad Bayu </h4>
+        <h3></h3>
+        <div class="img-container">
+          <img src="img/bayu.jpg" alt="header" class="centered-img" />
         </div>
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Septiananda Rifqi</h4>
-            <h3></h3>
-            <img src="img/rifqi.jpg" alt="header" />
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Smart workout plan
-            </p>
-          
-          </div>
-         
-        </div>
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Firda Ulfa Unsilah</h4>
-            <h3></h3>
-            <img src="img/firda.jpg" alt="header" />
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Ketua Kelompok
-            </p>
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              Ambis Banget
-            </p>
-            <p>
-
-          </div>
-         
-        </div>
-        <div class="price__card">
-          <div class="price__card__content">
-            <h4>Fanisa Nur Arifah</h4>
-            <h3></h3>
-            <img src="img/fanisa.jpg" alt="header" />
-            <p>
-              <i class="ri-checkbox-circle-line"></i>
-              ELITE Gyms & Classes
-            </p>
-           
-
-          </div>
-         
-        </div>
-         
-        </div>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          Designer Gua
+        </p>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          Pro Player Sejati
+        </p>
       </div>
-        
-    </section>
+    </div>
+    <div class="price__card">
+      <div class="price__card__content">
+        <h4>Septiananda Rifqi</h4>
+        <h3></h3>
+        <div class="img-container">
+          <img src="img/rifqi.jpg" alt="header" class="centered-img" />
+        </div>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          Smart workout plan
+        </p>
+      </div>
+    </div>
+    <div class="price__card">
+      <div class="price__card__content">
+        <h4>Firda Ulfa Unsilah</h4>
+        <h3></h3>
+        <div class="img-container">
+          <img src="img/firda.jpeg" alt="header" class="centered-img" />
+        </div>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          Ketua Kelompok
+        </p>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          Ambis Banget
+        </p>
+      </div>
+    </div>
+    <div class="price__card">
+      <div class="price__card__content">
+        <h4>Fanisa Nur Arifah</h4>
+        <h3></h3>
+        <div class="img-container">
+          <img src="img/fanisa.jpg" alt="header" class="centered-img" />
+        </div>
+        <p>
+          <i class="ri-checkbox-circle-line"></i>
+          ELITE Gyms & Classes
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
     <!-- Contact Section 2 Start -->
     <section id="contact" class="footcont">
@@ -148,7 +148,7 @@
             <p>Hak Cipta © 2024 Pantau Tamu Pro. Dibuat dengan <i class="ri-heart-fill"></i> oleh Tim Pengembang Aplikasi |</p>
             <p>Powered By Smart IT</p>
             <br>
-            <a href="/login">Login Admin</a>
+            <a href="{{ route('login') }}">Login Admin</a>
         </div>
           </div>
          

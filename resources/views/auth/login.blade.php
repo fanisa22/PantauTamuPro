@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/masuk.css"/>
+    <link rel="stylesheet" href="{{asset('css/masuk.css')}}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-7upumXv5vmNnu7NyVCNZLyY/zXn7cZz7Q1dBcJKiylf9rWgx01O0GB6IuQ8RP4CJ2aSc8szT0ZcazR0StR/abQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .container {
@@ -24,6 +24,7 @@
             <div class="bg-white p-8 rounded shadow-md relative">
                 <i class="fas fa-sign-in-alt text-6xl text-gray-500 absolute -top-6 left-1/2 transform -translate-x-1/2"></i>
                 <h2 class="text-2xl font-semibold mb-6">Company Login!</h2>
+                @include('component.flash')
                 <form method="post" action="{{route('login')}}">
                     @csrf
                     <div class="email">

@@ -19,24 +19,44 @@ use App\Http\Controllers\VisitorController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/dashboard',[HomeController::class,'dashboard'])->name('dashboard')->middleware('auth.admin');
 
-Route::get('/element',[HomeController::class,'element'])->name('element')->middleware('auth.admin');
-Route::get('/vip',[HomeController::class,'vip'])->name('vip')->middleware('auth.admin');
-Route::get('/karyawan',[HomeController::class,'karyawan'])->name('element')->middleware('auth.admin');
-Route::get('/profile',[HomeController::class,'profile'])->name('profile')->middleware('auth.admin');
-Route::get('/feedback',[HomeController::class,'feedback'])->name('feedback')->middleware('auth.admin');
 Route::get('/', [UserController::class, 'index']);
 Route::get('/daftar', [FormulirController::class, 'daftar'])->name('daftar');
+Route::get('/codevip', [HomeController::class, 'codevip'])->name('codevip');
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/form', [FormulirController::class, 'storeForm']);
 Route::get('/formulir',[FormulirController::class,'index']);
+Route::post('/logout', [LogoutController::class, 'logout']);
 
-Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/table',[HomeController::class,'tabler'])->name('table')->middleware('auth.admin');
+    
+Route::controller(LoginController::class)->group(function () {
+    Route::match(['GET', 'POST'],'/login', 'login')->name('login');
+    Route::get('/logout', 'index')->name('logout');
 
-Route::get('/cetak-tamu', [VisitorController::class, 'cetakTamu'])->name('cetak-tamu');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/table',[HomeController::class,'tabler'])->name('table');
+        Route::get('/dashboard',[HomeController::class,'dashboard'])->name('dashboard');
+        Route::get('/element',[HomeController::class,'element'])->name('element');
+        Route::get('/vip',[HomeController::class,'vip'])->name('vip');
+        Route::get('/karyawan',[HomeController::class,'karyawan'])->name('karyawan');
+        Route::get('/profile',[HomeController::class,'profile'])->name('profile');
+        Route::get('/feedback',[HomeController::class,'feedback'])->name('feedback');
+        
+        Route::controller(VisitorController::class)->group(function () {
+            Route::get('/cetak-tamu', 'cetakTamu')->name('cetak-tamu'); 
+            Route::get('/excel', 'xlsx')->name('xlsx'); 
+        
+        });
+    });
+    
+});
+
+
+
+
+
+

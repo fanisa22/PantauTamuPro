@@ -1,10 +1,7 @@
 @extends('app')
 
 @section('content')
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="css/popup.css">
-</head>
+
 <div class="d-flex justify-content-between align-items-center">
     <div>
         <h4 class="font-weight-bold mb-0">Manajemen Tamu kunjungan</h4>
@@ -21,7 +18,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="exportDropdownButton">
         <li><a class="dropdown-item" href="{{ route('cetak-tamu') }}" target="_blank" id="exportPdfButton"><i class="fas fa-file-pdf"></i> PDF</a></li>
-            <li><a class="dropdown-item" href="#" id="exportExcelButton"><i class="fas fa-file-excel"></i> Excel</a></li>
+            <li><a class="dropdown-item" href="{{ route('xlsx') }}" id="exportExcelButton"><i class="fas fa-file-excel"></i> Excel</a></li>
         </ul>
     </div>
     <ul>

@@ -540,6 +540,19 @@ body {
         font-size: 2rem;
     }
 
+    .img-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        /* Sesuaikan dengan tinggi gambar Anda */
+    }
+
+    .centered-img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
 
 }
 

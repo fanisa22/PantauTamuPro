@@ -2,70 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .table-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .table-header {
-            background-color: #e6ac00;
-            color: #fff;
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-        }
-        .table-body {
-            padding: 15px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #e6ac00;
-            color: #fff;
-        }
-        tr:hover {
-            background-color: #f2f2f2;
-        }
-        .report-button {
-            float: right;
-            font-size: 16px;
-            color: #000 !important;
-            padding: 10px 20px;
-            background-color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .report-button:hover {
-            background-color: #fff;
-            
-        }
-        .home-link {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('css./tamu.css')}}">
 </head>
 <body>
     <div class="header-container">

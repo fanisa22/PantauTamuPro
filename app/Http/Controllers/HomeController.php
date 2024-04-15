@@ -15,6 +15,10 @@ class HomeController extends Controller
         return view ('view.dashboard');
     }
 
+    public function codevip(){
+        return view ('view.vipcode');
+    }
+
     public function element(){
         $visitors = Visitor::all();
         return view ('view.elements', compact('visitors'));
@@ -48,5 +52,7 @@ class HomeController extends Controller
     public function tabler(){
         return view ('view.tables');
     }
+
+    
 
 }
