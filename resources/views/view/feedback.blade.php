@@ -22,9 +22,9 @@
         </ul>
     </div>
     <ul>
-    <button class="btn btn-dark" type="button" style="padding: 5px 10px; color: #fff; margin-right: 10px;" onclick="togglePopup()">
+    <!-- <button class="btn btn-dark" type="button" style="padding: 5px 10px; color: #fff; margin-right: 10px;" onclick="togglePopup()">
         <i class="fas fa-plus"></i> &nbsp;Tambah Data
-    </button>
+    </button> -->
 </ul>
 </div>
 
@@ -39,20 +39,14 @@
                             <table class="table table-striped table-hover" id="table-list">
                                 <thead>
                                     <th>No.</th>
-                                    <th>NIPD</th>
-                                    <th>Nama</th>
-                                    <th>Jabatan</th>
-                                    <th>Divisi</th>
-                                    <th>Option</th>
+                                    <th>Keterangan</th>
+                                    <th>Opsi</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($visitors as $index => $visitor)
+                                    @foreach($feedbacks as $index => $feedback)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $visitor->nama }}</td>
-                                        <td>{{ $visitor->alamat }}</td>
-                                        <td>{{ $visitor->keperluan }}</td>
-                                        <td>{{ $visitor->divisi }}</td>
+                                        <td>{{ $feedback->keterangan }}</td>
                                         <td>
                                         <button onclick="togglePopupedit()" class="btn btn-success" style="color: white; padding: 5px 10px; height: auto;">
                                             <i class="fas fa-edit"></i>&nbsp;Edit
@@ -79,22 +73,11 @@
 <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
     <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Tambah Data Karyawan</h4>
     
-    <form>
+    <form action="{{ route('feedback') }}" method="post">
+        @csrf
         <div class="form-group">
-            <label for="nipd">Nipd</label>
-            <input type="text" class="form-control" id="nipd" placeholder="Masukkan nipd">
-        </div>
-        <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
-        </div>
-        <div class="form-group">
-            <label for="jabatan">Jabatan</label>
-            <input type="text" class="form-control" id="jabatan" placeholder="Masukkan jabatan">
-        </div>
-        <div class="form-group">
-            <label for="divisi">Divisi</label>
-            <input type="text" class="form-control" id="divisi" placeholder="Masukkan asal divisi">
+            <label for="nipd">Keterangan</label>
+            <input type="text" class="form-control" id="nipd" name="keterangan" placeholder="Masukkan nipd">
         </div>
         
         <div style="text-align: center;">

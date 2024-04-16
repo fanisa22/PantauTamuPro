@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FormulirController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::post('/form', [FormulirController::class, 'storeForm']);
 Route::get('/formulir',[FormulirController::class,'index']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback');
     
 Route::controller(LoginController::class)->group(function () {
     Route::match(['GET', 'POST'],'/login', 'login')->name('login');

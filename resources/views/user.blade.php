@@ -117,17 +117,20 @@
     <!-- Contact Section 2 Start -->
     <section id="contact" class="footcont">
     <footer>
-        <div class="feedback-form-and-map">
+    <div class="feedback-form-and-map">
             <div class="feedback-form">
-                <form action="mailto:tujuan@gmail.com" method="post" enctype="text/plain">
+                <!-- <form action="mailto:tujuan@gmail.com" method="post" enctype="text/plain"> -->
                     <p style="font-size: 25px; font-family: serif;">BERHUBUNGAN DENGAN KAMI!</p><br>
                     <p style="color: #d9cb06;">Kami Selalu Mencari Cara Untuk Berhubungan Dengan Mereka Yang Ingin Menyampaikan<br>Kesan dan Pesan Untuk Aplikasi Kami.</p><br>
                     <label for="feedback">Masukkan masukan Anda:</label><br>
-                    <div class="form-group">
-                        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea>
+                    <form action="/feedback" method="post">
+                      @csrf
+                      <div class="form-group">
+                        <textarea id="feedback" name="keterangan" rows="4" cols="50"></textarea>
                         &nbsp; &nbsp;
-                        <i class="bi bi-arrow-right-circle" style="font-size: 20px; color:white;"></i>
-                    </div>
+                        <button type="submit" style="background: none; border: none; padding: 0;"><i class="bi bi-arrow-right-circle" style="font-size: 20px; color:white;"></i></button>
+                      </div>
+                    </form>
                     <br><br>
                     <p style="font-size: 15px; font-family: serif;">LEBIH DEKAT DENGAN KAMI!</p><br>
                     <p style="color: #d9cb06;">Kunjungi Dan Temukan Kami Diberbagai Platform Social Media Untuk Mengeksplor Lebih Jauh.</p><br>
@@ -140,7 +143,7 @@
                         &nbsp;&nbsp;
                         <a href="https://www.instagram.com/manglidjayaraya/?hl=id"><i class="bi-instagram" style="font-size: 20px; color:white;"></i></a>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
             <div class="maps-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1973.0149763259863!2d113.5707677579727!3d-8.203142729675596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7b1bfae3eeb55%3A0x3a74696b38f90783!2sPT.%20Mangli%20Djaya%20Raya!5e0!3m2!1sen!2sid!4v1649734707859!5m2!1sen!2sid" width="1000" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
