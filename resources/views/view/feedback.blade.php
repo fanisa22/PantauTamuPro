@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="css/popup.css">
+</head>
 <div class="d-flex justify-content-between align-items-center">
     <div>
         <h4 class="font-weight-bold mb-0">DATA FEEDBACK</h4>
@@ -73,7 +75,7 @@
 <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
     <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Tambah Data Karyawan</h4>
     
-    <form action="{{ route('feedback') }}" method="post">
+    <form action="/feedback" method="post">
         @csrf
         <div class="form-group">
             <label for="nipd">Keterangan</label>

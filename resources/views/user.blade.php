@@ -117,7 +117,7 @@
     <!-- Contact Section 2 Start -->
     <section id="contact" class="footcont">
     <footer>
-    <div class="feedback-form-and-map">
+        <div class="feedback-form-and-map">
             <div class="feedback-form">
                 <!-- <form action="mailto:tujuan@gmail.com" method="post" enctype="text/plain"> -->
                     <p style="font-size: 25px; font-family: serif;">BERHUBUNGAN DENGAN KAMI!</p><br>
@@ -151,7 +151,7 @@
             <p>Hak Cipta © 2024 Pantau Tamu Pro. Dibuat dengan <i class="ri-heart-fill"></i> oleh Tim Pengembang Aplikasi |</p>
             <p>Powered By Smart IT</p>
             <br>
-            <a href="{{ route('login') }}">Login Admin</a>
+            <a href="/login">Login Admin</a>
         </div>
           </div>
          

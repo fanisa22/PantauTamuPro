@@ -1,7 +1,10 @@
 @extends('app')
 
 @section('content')
-
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="css/popup.css">
+</head>
 <div class="d-flex justify-content-between align-items-center">
     <div>
         <h4 class="font-weight-bold mb-0">Manajemen Tamu kunjungan</h4>
@@ -17,8 +20,8 @@
             Rekap
         </button>
         <ul class="dropdown-menu" aria-labelledby="exportDropdownButton">
-        <li><a class="dropdown-item" href="{{ route('cetak-tamu') }}" target="_blank" id="exportPdfButton"><i class="fas fa-file-pdf"></i> PDF</a></li>
-            <li><a class="dropdown-item" href="{{ route('xlsx') }}" id="exportExcelButton"><i class="fas fa-file-excel"></i> Excel</a></li>
+            <li><a class="dropdown-item" href="#" id="exportPdfButton"><i class="fas fa-file-pdf"></i> PDF</a></li>
+            <li><a class="dropdown-item" href="#" id="exportExcelButton"><i class="fas fa-file-excel"></i> Excel</a></li>
         </ul>
     </div>
     <ul>
@@ -73,26 +76,31 @@
 <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
     <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Tambah Data Tamu Kunjungan</h4>
     
-    <form>
+    <form action="/tambahdata" method="POST">
+        @csrf
         <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
         </div>
         <div class="form-group">
             <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
+            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
         </div>
         <div class="form-group">
             <label for="keperluan">Keperluan</label>
-            <input type="text" class="form-control" id="keperluan" placeholder="Masukkan keperluan">
+            <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Masukkan keperluan">
         </div>
         <div class="form-group">
             <label for="asal_instansi">Asal Instansi</label>
-            <input type="text" class="form-control" id="asal_instansi" placeholder="Masukkan asal instansi">
-        </div>
+            <input type="text" class="form-control" id="asal_instansi" name="asal_instansi" placeholder="Masukkan asal instansi">
+        </div>  
         <div class="form-group">
             <label for="no_hp">No HP</label>
-            <input type="text" class="form-control" id="no_hp" placeholder="Masukkan nomor HP">
+            <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan nomor HP">
+        </div>
+        <div class="form-group">
+            <label for="tanggal">Tanggal</label>
+            <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
         </div>
         <div style="text-align: center;">
             <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Submit</button>
@@ -101,8 +109,6 @@
     </form>
 </div>
 <!-- END POP UP TAMBAH DATA -->
-
- 
 
 <script>
     // Mendapatkan tombol "Report"
@@ -140,6 +146,5 @@
             popup.style.display = 'none';
         }
     }
-
 </script>
 @endsection

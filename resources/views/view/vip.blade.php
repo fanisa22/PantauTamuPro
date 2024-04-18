@@ -1,6 +1,10 @@
 @extends('app')
 
 @section('content')
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="css/popup.css">
+</head>
 
 
 <div class="d-flex justify-content-between align-items-center">
@@ -53,16 +57,16 @@
                                     <th>Option</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($visitors as $index => $visitor)
+                                    @foreach($vips as $index => $vip)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $visitor->nama }}</td>
-                                        <td>{{ $visitor->nama }}</td>
-                                        <td>{{ $visitor->alamat }}</td>
-                                        <td>{{ $visitor->keperluan }}</td>
-                                        <td>{{ $visitor->asal_instansi }}</td>
-                                        <td>{{ $visitor->no_hp }}</td>
-                                        <td>{{ $visitor->tanggal }}</td>
+                                        <td>{{ $vip->undangan }}</td>
+                                        <td>{{ $vip->nama }}</td>
+                                        <td>{{ $vip->alamat }}</td>
+                                        <td>{{ $vip->keperluan }}</td>
+                                        <td>{{ $vip->asal_instansi }}</td>
+                                        <td>{{ $vip->no_hp }}</td>
+                                        <td>{{ $vip->tanggal }}</td>
                                         <td>
                                         <select id="status-dropdown">
                                             <option>Proses</option>
@@ -75,10 +79,10 @@
                                             <input type="text" placeholder="Input Keterangan" />
                                         </td>
                                         <td>
-                                        <button onclick="togglePopupedit()" class="btn btn-success" style="color: white; padding: 5px 10px; height: auto;">
+                                        <button onclick="editVisitor()" class="btn btn-success" style="color: white; padding: 5px 10px; height: auto;">
                                             <i class="fas fa-edit"></i>&nbsp;Edit
                                         </button><br><br>
-                                        <button onclick="konfirmasiHapus()" class="btn btn-danger" style="color: white; padding: 5px 10px; height: auto;">
+                                        <button onclick="deleteVisitor()" class="btn btn-danger" style="color: white; padding: 5px 10px; height: auto;">
                                             <i class="fas fa-trash-alt"></i>&nbsp;Delete
                                         </button>
                                         </td>
@@ -101,79 +105,39 @@
 <div id="popup" style="display: none; position: fixed; top: 56%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
     <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Tambah Data Tamu Kunjungan</h4>
     
-    <form>
+    <form action="/tambahvip" method="post">
+        @csrf
+        <div class="form-group">
+            <label for="nama">Undangan</label>
+            <input type="text" class="form-control" id="nama" name="undangan" placeholder="Masukkan Kode Undangan">
+        </div>
         <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
         </div>
         <div class="form-group">
             <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
+            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
         </div>
         <div class="form-group">
             <label for="keperluan">Keperluan</label>
-            <input type="text" class="form-control" id="keperluan" placeholder="Masukkan keperluan">
+            <input type="text" class="form-control" id="keperluan" name="keperluan" placeholder="Masukkan keperluan">
         </div>
         <div class="form-group">
             <label for="asal_instansi">Asal Instansi</label>
-            <input type="text" class="form-control" id="asal_instansi" placeholder="Masukkan asal instansi">
+            <input type="text" class="form-control" id="asal_instansi" name="asal_instansi" placeholder="Masukkan asal instansi">
         </div>
         <div class="form-group">
             <label for="no_hp">No HP</label>
-            <input type="text" class="form-control" id="no_hp" placeholder="Masukkan nomor HP">
+            <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Masukkan nomor HP">
         </div>
         <div class="form-group">
-            <label for="status">Status</label>
-            <input type="text" class="form-control" id="status" placeholder="Masukkan nomor HP">
-        </div>
-        <div class="form-group">
-            <label for="ket">Keterangan</label>
-            <input type="text" class="form-control" id="ket" placeholder="Masukkan keterangan">
+            <label for="status">Tanggal</label>
+            <input type="text" class="form-control" id="status" name="tanggal" placeholder="Masukkan Tanggal">
         </div>
         <div style="text-align: center;">
             <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Submit</button>
             <button type="button" class="btn btn-secondary" onclick="togglePopup()">Close</button>
-        </div>
-    </form>
-</div>
-<!-- END POP UP TAMBAH DATA-->
-
-<!-- POP UP EDIT DATA-->
-<div id="popupedit" style="display: none; position: fixed; top: 56%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 400px;">
-    <h4 style="margin-top: 0; margin-bottom: 20px; text-align: center;">Edit Data Tamu VIP</h4>
-    
-    <form>
-        <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
-        </div>
-        <div class="form-group">
-            <label for="alamat">Alamat</label>
-            <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
-        </div>
-        <div class="form-group">
-            <label for="keperluan">Keperluan</label>
-            <input type="text" class="form-control" id="keperluan" placeholder="Masukkan keperluan">
-        </div>
-        <div class="form-group">
-            <label for="asal_instansi">Asal Instansi</label>
-            <input type="text" class="form-control" id="asal_instansi" placeholder="Masukkan asal instansi">
-        </div>
-        <div class="form-group">
-            <label for="no_hp">No HP</label>
-            <input type="text" class="form-control" id="no_hp" placeholder="Masukkan nomor HP">
-        </div>
-        <div class="form-group">
-            <label for="status">Status</label>
-            <input type="text" class="form-control" id="status" placeholder="Masukkan nomor HP">
-        </div>
-        <div class="form-group">
-            <label for="ket">Keterangan</label>
-            <input type="text" class="form-control" id="ket" placeholder="Masukkan keterangan">
-        </div>
-        <div style="text-align: center;">
-            <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Submit</button>
-            <button type="button" class="btn btn-secondary" onclick="togglePopupedit()">Close</button>
         </div>
     </form>
 </div>
@@ -247,32 +211,6 @@ dropdown.addEventListener("change", function() {
             } else {
                 popup.style.display = 'none';
             }
-        }
-
-          // Function to toggle popup EDIT
-    function togglePopupedit() {
-            var popup = document.getElementById('popupedit');
-            if (popup.style.display === 'none') {
-                popup.style.display = 'block';
-            } else {
-                popup.style.display = 'none';
-            }
-        }
-
-        function konfirmasiHapus() {
-            // Menampilkan jendela konfirmasi dengan pesan khusus
-            if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-                // Jika pengguna mengklik "OK", lakukan penghapusan
-                hapusData();
-            } else {
-                // Jika pengguna mengklik "Batal", tidak lakukan apa-apa
-                return;
-            }
-        }
-
-        function hapusData() {
-            // Di sini Anda akan menempatkan kode untuk menghapus data
-            alert("Data berhasil dihapus!"); // Contoh pesan konfirmasi
         }
 </script>
 @endsection
