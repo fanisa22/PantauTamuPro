@@ -19,17 +19,17 @@ class FormulirController extends Controller
     public function storeForm(Request $request)
     {
          // Validasi reCAPTCHA token
-         $validator = Validator::make($request->all(), [
-            'g-recaptcha-response' => 'required|recaptcha',
-            // Tambahkan aturan validasi lainnya di sini
-        ]);
+        //  $validator = Validator::make($request->all(), [
+        //     'g-recaptcha-response' => 'required|recaptcha',
+        //     // Tambahkan aturan validasi lainnya di sini
+        // ]);
 
-        if ($validator->fails()) {
-            // Redirect kembali ke halaman formulir dengan pesan kesalahan
-            return redirect('/form')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+        // if ($validator->fails()) {
+        //     // Redirect kembali ke halaman formulir dengan pesan kesalahan
+        //     return redirect('/form')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
         // Validasi data
         $validatedData = $request->validate([
             'nama' => 'required',
