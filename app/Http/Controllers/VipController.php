@@ -12,7 +12,7 @@ class VipController extends Controller
      */
     public function index()
     {
-        $vips = Vip::all();
+        $vips = Vip::orderBy('created_at', 'desc')->get();
         return view ('view.vip', compact('vips'));
     }
 
@@ -80,7 +80,7 @@ class VipController extends Controller
     }
 
     public function cetakVip(){
-        $dataCetakTamu = Visitor::all();
-        return view ('rekap.cetak-vip', compact('dataCetakvip'));
+        $dataCetakVip = Vip::all();
+        return view ('rekap.cetak-vip', compact('dataCetakVip'));
     }
 }

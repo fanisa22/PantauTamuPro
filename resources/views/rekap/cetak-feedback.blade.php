@@ -12,20 +12,16 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>NIPD</th>
-                <th>Nama</th>
-                <th>Jabatan</th>
-                <th>Divisi</th>
+                <th>Keterangan</th>
+                <th>Tanggal</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($dataCetakKaryawan as $index => $karyawan)
+            @foreach($dataCetakFeedback as $index => $feedback)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $karyawan->nipd }}</td>
-                <td>{{ $karyawan->nama }}</td>
-                <td>{{ $karyawan->jabatan }}</td>
-                <td>{{ $karyawan->divisi }}</td>
+                <td>{{ $feedback->keterangan }}</td>
+                <td>{{ $feedback->created_at }}</td>
             </tr>
             @endforeach
         </tbody>

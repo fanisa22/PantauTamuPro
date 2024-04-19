@@ -15,4 +15,5 @@ class Karyawan extends Model
         'jabatan',
         'divisi',
     ];
+    public $timestamps = true;
 }

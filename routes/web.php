@@ -66,6 +66,24 @@ Route::post('/login', [LoginController::class, 'login']);
             Route::get('/excel', 'xlsx')->name('xlsx'); 
         
         });
+
+        Route::controller(VipController::class)->group(function () {
+            Route::get('/cetak-vip', 'cetakVip')->name('cetak-vip'); 
+            Route::get('/excel', 'xlsx')->name('xlsx'); 
+        
+        });
+
+        Route::controller(KaryawanController::class)->group(function () {
+            Route::get('/cetak-karyawan', 'cetakKaryawan')->name('cetak-karyawan'); 
+            Route::get('/excel', 'xlsx')->name('xlsx'); 
+        
+        });
+
+        Route::controller(FeedbackController::class)->group(function () {
+            Route::get('/cetak-feedback', 'cetakFeedback')->name('cetak-feedback'); 
+            Route::get('/excel', 'xlsx')->name('xlsx'); 
+        
+        });
 //     });
     
 // });

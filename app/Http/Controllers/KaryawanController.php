@@ -12,8 +12,8 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-        $karyawans = Karyawan::all();
-        return view ('view.karyawan', compact('karyawans'));
+        $karyawans = Karyawan::orderBy('created_at', 'desc')->get();
+        return view('view.karyawan', compact('karyawans'));
     }
 
     /**
@@ -29,6 +29,7 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
+        $karyawans = Karyawan::orderBy('created_at', 'desc')->get();
         $validatedData = $request->validate([
             'nipd' => 'required',
             'nama' => 'required',
@@ -75,7 +76,7 @@ class KaryawanController extends Controller
     }
 
     public function cetakKaryawan(){
-        $dataCetakTamu = Visitor::all();
-        return view ('rekap.cetak-karyawan', compact('dataCetakkaryawan'));
+        $dataCetakKaryawan = Karyawan::all();
+        return view ('rekap.cetak-karyawan', compact('dataCetakKaryawan'));
     }
 }

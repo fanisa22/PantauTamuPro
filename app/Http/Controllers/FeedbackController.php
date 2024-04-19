@@ -12,8 +12,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-            $feedbacks = Feedback::all();
-            return view ('view.feedback', compact('feedbacks'));
+        $feedbacks = Feedback::orderBy('created_at', 'desc')->get();
+        return view ('view.feedback', compact('feedbacks'));
     }
 
     /**
@@ -72,5 +72,10 @@ class FeedbackController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function cetakFeedback(){
+        $dataCetakFeedback = Feedback::all();
+        return view ('rekap.cetak-feedback', compact('dataCetakFeedback'));
     }
 }
