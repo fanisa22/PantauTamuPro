@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Karyawan;
+use App\Models\Feedback;
 
-class KaryawanController extends Controller
+class FeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $karyawans = Karyawan::orderBy('created_at', 'desc')->get();
-        return view('view.karyawan', compact('karyawans'));
+            $feedbacks = Feedback::all();
+            return view ('view.feedback', compact('feedbacks'));
     }
 
     /**
@@ -21,7 +21,7 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -30,16 +30,16 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nipd' => 'required',
-            'nama' => 'required',
-            'jabatan' => 'required',
-            'divisi' => 'required',
+            'keterangan' => 'required',
         ]);
 
-        Karyawan::create($validatedData);
+        Feedback::create($validatedData);
 
-        // Redirect atau kembali ke halaman sebelumnya dengan notifikasi
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+        // $feedback = new Feedback();
+        // $feedback->keterangan = $request->input('feedback');
+        // $feedback->save();
+
+        return redirect()->back()->with('success', 'Masukan berhasil disimpan.');
     }
 
     /**
@@ -72,10 +72,5 @@ class KaryawanController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function cetakKaryawan(){
-        $dataCetakKaryawan = Karyawan::all();
-        return view ('rekap.cetak-karyawan', compact('dataCetakKaryawan'));
     }
 }

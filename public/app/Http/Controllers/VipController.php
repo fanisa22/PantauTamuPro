@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Karyawan;
+use App\Models\Vip;
 
-class KaryawanController extends Controller
+class VipController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $karyawans = Karyawan::orderBy('created_at', 'desc')->get();
-        return view('view.karyawan', compact('karyawans'));
+        $vips = Vip::all();
+        return view ('view.vip', compact('vips'));
     }
 
     /**
@@ -21,7 +21,7 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -29,14 +29,19 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi data jika diperlukan
         $validatedData = $request->validate([
-            'nipd' => 'required',
+            'undangan' => 'required',
             'nama' => 'required',
-            'jabatan' => 'required',
-            'divisi' => 'required',
+            'alamat' => 'required',
+            'keperluan' => 'required',
+            'asal_instansi' => 'required',
+            'no_hp' => 'required',
+            'tanggal' => 'required',
         ]);
 
-        Karyawan::create($validatedData);
+        // Simpan data ke database
+        Vip::create($validatedData);
 
         // Redirect atau kembali ke halaman sebelumnya dengan notifikasi
         return redirect()->back()->with('success', 'Data berhasil disimpan!');
@@ -74,8 +79,8 @@ class KaryawanController extends Controller
         //
     }
 
-    public function cetakKaryawan(){
-        $dataCetakKaryawan = Karyawan::all();
-        return view ('rekap.cetak-karyawan', compact('dataCetakKaryawan'));
+    public function cetakVip(){
+        $dataCetakTamu = Visitor::all();
+        return view ('rekap.cetak-vip', compact('dataCetakvip'));
     }
 }
